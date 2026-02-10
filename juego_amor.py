@@ -830,10 +830,15 @@ async def pantalla_propuesta():
         dibujar_suelo(frame * 0.3)
 
         if not aceptado:
-            # Pregunta con sombra
-            sombra = fuente_grande.render("Quieres salir conmigo el 14?", True, (150, 50, 70))
-            PANTALLA.blit(sombra, (ANCHO//2 - sombra.get_width()//2 + 2, 152))
-            PANTALLA.blit(pregunta, (ANCHO//2 - pregunta.get_width()//2, 150))
+            # Pregunta con contorno
+            texto_str = "¿Quieres salir conmigo el 14?"
+            px = ANCHO//2 - pregunta.get_width()//2
+            py = 150
+            # Contorno oscuro
+            contorno = fuente_grande.render(texto_str, True, (100, 30, 50))
+            for dx, dy in [(-2,0),(2,0),(0,-2),(0,2),(-2,-2),(2,2),(-2,2),(2,-2)]:
+                PANTALLA.blit(contorno, (px + dx, py + dy))
+            PANTALLA.blit(pregunta, (px, py))
 
             # Botón SÍ (con efecto hover)
             si_color = (0, 220, 80) if not btn_si_hover else (0, 255, 100)
