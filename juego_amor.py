@@ -777,7 +777,7 @@ async def pantalla_propuesta():
     fuente_grande = pygame.font.Font(None, 58)
     fuente_btn = pygame.font.Font(None, 42)
 
-    pregunta = fuente_grande.render("Quieres salir conmigo el 14?", True, ROJO)
+    pregunta = fuente_grande.render("¿Quieres salir conmigo el 14?", True, ROJO)
 
     btn_si = pygame.Rect(ANCHO//2 - 150, 300, 120, 55)
     btn_no = pygame.Rect(ANCHO//2 + 50, 300, 120, 55)
